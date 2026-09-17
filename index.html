@@ -1,0 +1,715 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>徐元祥 · 个人主页</title>
+<meta name="description" content="徐元祥的个人主页 — 南京航空航天大学飞行器控制与信息工程本科（专业排名 1/800），清华大学航天航空学院硕士在读。无人机、机器人、嵌入式系统项目作品集。">
+<meta property="og:title" content="徐元祥 · 个人主页">
+<meta property="og:description" content="飞行器控制 / 机器人 / 嵌入式系统 — 项目作品集与个人简历">
+<meta property="og:type" content="website">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='22' fill='%231d4ed8'/%3E%3Ctext x='50' y='68' font-size='52' text-anchor='middle' fill='white' font-family='serif'%3E徐%3C/text%3E%3C/svg%3E">
+<style>
+  :root{
+    --bg:#f6f8fb; --card:#ffffff; --ink:#0f172a; --ink-2:#475569; --ink-3:#94a3b8;
+    --accent:#1d4ed8; --accent-2:#3b82f6; --gold:#b45309; --gold-bg:#fef3c7;
+    --line:#e2e8f0; --radius:16px;
+    --shadow:0 1px 2px rgba(15,23,42,.05),0 8px 24px -12px rgba(15,23,42,.12);
+    --shadow-lg:0 24px 48px -16px rgba(15,23,42,.22);
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","HarmonyOS Sans SC","MiSans","Microsoft YaHei","Segoe UI",sans-serif;
+    background:var(--bg); color:var(--ink); line-height:1.75;
+    -webkit-font-smoothing:antialiased;
+  }
+  ::selection{background:#bfdbfe}
+  img,video{max-width:100%;display:block}
+  a{color:var(--accent);text-decoration:none}
+
+  /* ---------- nav ---------- */
+  nav{
+    position:fixed;top:0;left:0;right:0;z-index:100;
+    background:rgba(255,255,255,.82);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);
+    border-bottom:1px solid var(--line);
+  }
+  .nav-inner{max-width:1080px;margin:0 auto;padding:0 24px;height:60px;display:flex;align-items:center;justify-content:space-between}
+  .nav-logo{font-weight:700;font-size:18px;color:var(--ink);display:flex;align-items:center;gap:10px}
+  .nav-logo .dot{width:10px;height:10px;border-radius:50%;background:linear-gradient(135deg,var(--accent),#60a5fa)}
+  .nav-links{display:flex;gap:4px;list-style:none}
+  .nav-links a{padding:7px 14px;border-radius:99px;color:var(--ink-2);font-size:14.5px;font-weight:500;transition:.2s}
+  .nav-links a:hover{background:#eef2ff;color:var(--accent)}
+  .nav-links a.active{background:#eef2ff;color:var(--accent)}
+  #menuBtn{display:none;border:none;background:none;font-size:22px;color:var(--ink);cursor:pointer;padding:6px}
+
+  /* ---------- hero ---------- */
+  header{
+    position:relative;overflow:hidden;color:#fff;
+    background:radial-gradient(1200px 600px at 80% -10%,rgba(59,130,246,.35),transparent 60%),
+               radial-gradient(900px 500px at -10% 110%,rgba(37,99,235,.28),transparent 55%),
+               linear-gradient(160deg,#0b1220 0%,#0f1c3f 55%,#12265c 100%);
+    padding:150px 24px 90px;
+  }
+  header .grid-bg{
+    position:absolute;inset:0;opacity:.5;pointer-events:none;
+    background-image:linear-gradient(rgba(148,163,184,.07) 1px,transparent 1px),
+                     linear-gradient(90deg,rgba(148,163,184,.07) 1px,transparent 1px);
+    background-size:44px 44px;
+    mask-image:radial-gradient(ellipse 90% 80% at 50% 30%,#000 30%,transparent 75%);
+    -webkit-mask-image:radial-gradient(ellipse 90% 80% at 50% 30%,#000 30%,transparent 75%);
+  }
+  .hero-inner{max-width:1080px;margin:0 auto;position:relative;display:flex;gap:48px;align-items:center}
+  .avatar{
+    flex:none;width:148px;height:148px;border-radius:50%;
+    background:linear-gradient(135deg,#2563eb,#60a5fa);
+    display:flex;align-items:center;justify-content:center;
+    font-size:64px;font-weight:700;font-family:"STZhongsong","SimSun",serif;
+    box-shadow:0 0 0 6px rgba(255,255,255,.08),0 20px 50px -12px rgba(37,99,235,.55);
+  }
+  .hero-text h1{font-size:44px;letter-spacing:2px;line-height:1.25}
+  .hero-text .en{color:#93b4f8;font-size:15px;letter-spacing:4px;margin-top:2px}
+  .hero-text .role{margin-top:14px;font-size:18px;color:#dbe7ff;font-weight:500}
+  .hero-text .role b{color:#fff}
+  .hero-tags{margin-top:16px;display:flex;flex-wrap:wrap;gap:8px}
+  .hero-tags span{font-size:13px;color:#c7d7f8;border:1px solid rgba(148,183,255,.35);border-radius:99px;padding:3px 12px;background:rgba(37,99,235,.14)}
+  .hero-cta{margin-top:28px;display:flex;flex-wrap:wrap;gap:12px}
+  .btn{display:inline-flex;align-items:center;gap:8px;padding:11px 22px;border-radius:12px;font-size:15px;font-weight:600;transition:.2s;cursor:pointer;border:none}
+  .btn-primary{background:#fff;color:#12265c}
+  .btn-primary:hover{transform:translateY(-2px);box-shadow:0 12px 28px -8px rgba(255,255,255,.35)}
+  .btn-ghost{color:#dbe7ff;border:1px solid rgba(199,215,248,.4);background:rgba(255,255,255,.04)}
+  .btn-ghost:hover{background:rgba(255,255,255,.12);color:#fff}
+  .hero-stats{max-width:1080px;margin:64px auto 0;position:relative;display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+  .stat{background:rgba(255,255,255,.06);border:1px solid rgba(148,183,255,.18);border-radius:14px;padding:16px 20px;backdrop-filter:blur(4px)}
+  .stat b{display:block;font-size:24px;color:#fff}
+  .stat span{font-size:13px;color:#9db4e8}
+
+  /* ---------- sections ---------- */
+  main{max-width:1080px;margin:0 auto;padding:0 24px}
+  section{padding:76px 0 8px}
+  .sec-head{margin-bottom:34px}
+  .sec-kicker{font-size:13px;font-weight:700;letter-spacing:3px;color:var(--accent);text-transform:uppercase}
+  .sec-head h2{font-size:30px;margin-top:6px;letter-spacing:1px}
+  .sec-head p{color:var(--ink-2);margin-top:8px;max-width:720px}
+
+  /* education timeline */
+  .timeline{position:relative;margin-left:8px;padding-left:28px;border-left:2px solid #dbe4f0}
+  .titem{position:relative;padding-bottom:34px}
+  .titem:last-child{padding-bottom:6px}
+  .titem::before{content:"";position:absolute;left:-36px;top:8px;width:14px;height:14px;border-radius:50%;background:#fff;border:3px solid var(--accent-2)}
+  .titem h3{font-size:19px;display:flex;flex-wrap:wrap;gap:10px;align-items:baseline}
+  .titem h3 .school{font-weight:700}
+  .titem .time{color:var(--ink-3);font-size:13.5px;font-weight:500}
+  .titem .major{color:var(--ink-2);margin-top:2px;font-size:15px}
+  .titem ul{margin-top:10px;color:var(--ink-2);font-size:14.5px;padding-left:20px}
+  .titem ul li{margin:3px 0}
+  .pill{display:inline-block;background:#eef2ff;color:var(--accent);font-size:12.5px;font-weight:600;border-radius:99px;padding:2px 11px;vertical-align:2px}
+  .course-tags{margin-top:10px;display:flex;flex-wrap:wrap;gap:7px}
+  .course-tags span{font-size:12.5px;background:#f1f5f9;border:1px solid var(--line);color:var(--ink-2);border-radius:8px;padding:2px 10px}
+
+  /* projects */
+  .project{
+    background:var(--card);border:1px solid var(--line);border-radius:var(--radius);
+    box-shadow:var(--shadow);margin-bottom:36px;overflow:hidden;
+    display:grid;grid-template-columns:1.08fr 1fr;
+  }
+  .project:nth-child(even) .p-media{order:2}
+  .p-media{position:relative;background:#0b1220;min-height:280px}
+  .p-media video{width:100%;height:100%;object-fit:cover;position:absolute;inset:0}
+  .p-media .frame{position:relative;width:100%;padding-top:56.25%;height:0}
+  .p-badge{
+    position:absolute;top:14px;left:14px;z-index:5;
+    font-size:12.5px;font-weight:700;color:#fff;border-radius:99px;padding:4px 13px;
+    background:linear-gradient(135deg,#dc2626,#f59e0b);box-shadow:0 4px 14px -4px rgba(220,38,38,.6);
+  }
+  .p-badge.blue{background:linear-gradient(135deg,#1d4ed8,#3b82f6);box-shadow:0 4px 14px -4px rgba(29,78,216,.6)}
+  .p-badge.slate{background:linear-gradient(135deg,#334155,#64748b);box-shadow:0 4px 14px -4px rgba(51,65,85,.6)}
+  .p-hint{position:absolute;bottom:12px;right:14px;z-index:5;font-size:12px;color:#cbd5e1;background:rgba(11,18,32,.55);backdrop-filter:blur(4px);border-radius:99px;padding:3px 12px;pointer-events:none;opacity:0;transition:.3s}
+  .p-media:hover .p-hint{opacity:1}
+  .p-body{padding:30px 32px}
+  .p-body h3{font-size:21px;line-height:1.4}
+  .p-meta{color:var(--ink-3);font-size:13.5px;margin-top:4px}
+  .p-body p.desc{color:var(--ink-2);font-size:15px;margin-top:12px}
+  .p-body ul{margin-top:12px;color:var(--ink-2);font-size:14.5px;padding-left:18px}
+  .p-body ul li{margin:4px 0}
+  .p-tags{margin-top:16px;display:flex;flex-wrap:wrap;gap:7px}
+  .p-tags span{font-size:12.5px;background:#f1f5f9;border:1px solid var(--line);border-radius:8px;padding:2px 10px;color:var(--ink-2)}
+  .p-links{margin-top:16px;display:flex;gap:14px;font-size:14px;font-weight:600}
+  .p-links a{display:inline-flex;align-items:center;gap:6px}
+  .cert-chip{display:flex;gap:12px;align-items:center;margin-top:16px;background:#fffbeb;border:1px solid #fde68a;border-radius:12px;padding:10px 14px;cursor:zoom-in}
+  .cert-chip img{width:52px;height:40px;object-fit:cover;border-radius:6px}
+  .cert-chip span{font-size:13.5px;color:#92400e;font-weight:600}
+  .cert-chip em{display:block;font-style:normal;font-size:12px;color:#b45309;font-weight:400}
+  .p-gallery{margin-top:16px;display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
+  .p-gallery button{position:relative;border:1px solid var(--line);border-radius:10px;overflow:hidden;cursor:zoom-in;padding:0;background:#0b1220;transition:.2s}
+  .p-gallery button:hover{border-color:#93c5fd;transform:translateY(-2px)}
+  .p-gallery img{width:100%;aspect-ratio:16/9;object-fit:cover;display:block}
+  .p-gallery .g-label{position:absolute;left:0;right:0;bottom:0;font-size:11px;line-height:1.4;color:#e2e8f0;background:linear-gradient(transparent,rgba(11,18,32,.85));padding:18px 4px 4px;text-align:center;pointer-events:none}
+  @media (max-width:560px){.p-gallery{grid-template-columns:repeat(2,1fr)}}
+
+  /* compact achievement grid */
+  .mini-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:20px}
+  .mini{
+    background:var(--card);border:1px solid var(--line);border-radius:var(--radius);
+    padding:24px 26px;box-shadow:var(--shadow);transition:.25s;
+  }
+  .mini:hover{transform:translateY(-3px);box-shadow:var(--shadow-lg)}
+  .mini h3{font-size:17px;display:flex;align-items:center;gap:10px}
+  .mini .mini-badge{font-size:12px;font-weight:700;border-radius:99px;padding:2px 11px;background:var(--gold-bg);color:var(--gold);flex:none}
+  .mini .mini-badge.blue{background:#dbeafe;color:var(--accent)}
+  .mini p{color:var(--ink-2);font-size:14px;margin-top:8px}
+  .mini .p-tags{margin-top:12px}
+
+  /* awards */
+  .award-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+  .award{
+    background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px 20px;
+    display:flex;gap:14px;align-items:flex-start;box-shadow:var(--shadow);
+  }
+  .award .medal{flex:none;width:40px;height:40px;border-radius:11px;display:flex;align-items:center;justify-content:center;font-size:20px;background:linear-gradient(135deg,#fef3c7,#fde68a)}
+  .award.silver .medal{background:linear-gradient(135deg,#f1f5f9,#e2e8f0)}
+  .award.blue .medal{background:linear-gradient(135deg,#dbeafe,#bfdbfe)}
+  .award b{font-size:14.5px;display:block;line-height:1.5}
+  .award span{font-size:12.5px;color:var(--ink-3)}
+
+  /* skills */
+  .skill-wrap{display:grid;grid-template-columns:repeat(2,1fr);gap:20px}
+  .skill-cat{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:24px 26px;box-shadow:var(--shadow)}
+  .skill-cat h3{font-size:16.5px;display:flex;align-items:center;gap:10px}
+  .skill-cat h3 .ico{font-size:20px}
+  .chips{margin-top:14px;display:flex;flex-wrap:wrap;gap:8px}
+  .chips span{font-size:13.5px;background:#f1f5f9;border:1px solid var(--line);border-radius:99px;padding:5px 14px;color:var(--ink-2);transition:.2s}
+  .chips span:hover{background:#eef2ff;border-color:#c7d2fe;color:var(--accent)}
+
+  /* campus */
+  .campus{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:26px 30px;box-shadow:var(--shadow);display:flex;flex-wrap:wrap;gap:10px 26px}
+  .campus span{font-size:14.5px;color:var(--ink-2);display:inline-flex;align-items:center;gap:8px}
+  .campus span::before{content:"✦";color:var(--accent-2);font-size:12px}
+
+  /* contact */
+  .contact-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+  .ccard{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:26px;box-shadow:var(--shadow);text-align:center;transition:.25s;color:inherit;display:block}
+  .ccard:hover{transform:translateY(-3px);box-shadow:var(--shadow-lg)}
+  .ccard .ico{font-size:30px}
+  .ccard b{display:block;margin-top:8px;font-size:16px}
+  .ccard span{font-size:13.5px;color:var(--ink-2);word-break:break-all}
+
+  footer{margin-top:80px;border-top:1px solid var(--line);padding:30px 24px 40px;text-align:center;color:var(--ink-3);font-size:13.5px}
+  footer .up{display:inline-flex;align-items:center;gap:6px;color:var(--ink-2);margin-bottom:10px;font-weight:600}
+
+  /* lightbox */
+  .lightbox{position:fixed;inset:0;z-index:200;background:rgba(5,10,20,.88);display:none;align-items:center;justify-content:center;padding:30px;backdrop-filter:blur(6px)}
+  .lightbox.open{display:flex}
+  .lightbox video{max-width:min(1100px,94vw);max-height:86vh;border-radius:12px;box-shadow:var(--shadow-lg);background:#000}
+  .lightbox .close{position:absolute;top:18px;right:22px;font-size:34px;color:#e2e8f0;background:none;border:none;cursor:pointer;line-height:1}
+  .lightbox .cap{position:absolute;bottom:22px;left:0;right:0;text-align:center;color:#cbd5e1;font-size:14px}
+
+  /* reveal animation */
+  .reveal{opacity:0;transform:translateY(22px);transition:opacity .7s ease,transform .7s ease}
+  .reveal.in{opacity:1;transform:none}
+
+  @media (max-width:900px){
+    .hero-inner{flex-direction:column;text-align:center;gap:26px}
+    .hero-tags,.hero-cta{justify-content:center}
+    .hero-stats{grid-template-columns:repeat(2,1fr)}
+    .project,.project:nth-child(even){grid-template-columns:1fr}
+    .project:nth-child(even) .p-media{order:0}
+    .p-media{min-height:0}
+    .p-media.multi .frame{padding-top:56.25%}
+    .mini-grid,.skill-wrap{grid-template-columns:1fr}
+    .award-grid{grid-template-columns:1fr 1fr}
+    .contact-cards{grid-template-columns:1fr}
+    .nav-links{
+      display:none;position:absolute;top:60px;right:14px;left:14px;
+      background:#fff;border:1px solid var(--line);border-radius:14px;box-shadow:var(--shadow-lg);
+      flex-direction:column;padding:10px;gap:2px;
+    }
+    .nav-links.open{display:flex}
+    .nav-links a{display:block;padding:10px 16px}
+    #menuBtn{display:block}
+    .avatar{width:120px;height:120px;font-size:52px}
+    .hero-text h1{font-size:34px}
+  }
+  @media (max-width:560px){
+    .award-grid{grid-template-columns:1fr}
+    section{padding:56px 0 4px}
+    .p-body{padding:22px}
+  }
+</style>
+</head>
+<body>
+
+<!-- ============ 导航 ============ -->
+<nav>
+  <div class="nav-inner">
+    <a class="nav-logo" href="#top"><span class="dot"></span>徐元祥</a>
+    <button id="menuBtn" aria-label="菜单">☰</button>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#edu">教育经历</a></li>
+      <li><a href="#projects">项目成果</a></li>
+      <li><a href="#awards">荣誉奖项</a></li>
+      <li><a href="#skills">专业技能</a></li>
+      <li><a href="#contact">联系方式</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- ============ 首屏 ============ -->
+<header id="top">
+  <div class="grid-bg"></div>
+  <div class="hero-inner">
+    <div class="avatar">徐</div>
+    <div class="hero-text">
+      <h1>徐元祥</h1>
+      <div class="en">XU YUANXIANG</div>
+      <p class="role"><b>清华大学航天航空学院 · 机械专业 硕士在读</b>（2026 级）<br>本科毕业于南京航空航天大学 飞行器控制与信息工程</p>
+      <div class="hero-tags">
+        <span>🛩 飞行器控制</span><span>🤖 机器人</span><span>🔗 嵌入式系统</span><span>👁 机器视觉</span>
+      </div>
+      <div class="hero-cta">
+        <a class="btn btn-primary" href="#projects">查看项目成果 ↓</a>
+        <a class="btn btn-ghost" href="assets/resume/XuYuanxiang_Resume.pdf" target="_blank">下载简历 PDF</a>
+        <a class="btn btn-ghost" href="#contact">联系我</a>
+      </div>
+    </div>
+  </div>
+  <div class="hero-stats">
+    <div class="stat"><b>1 / 800</b><span>本科专业排名</span></div>
+    <div class="stat"><b>4.5 / 5.0</b><span>学业绩点（均分 95）</span></div>
+    <div class="stat"><b>全国特等奖</b><span>“挑战杯”课外学术科技作品竞赛</span></div>
+    <div class="stat"><b>国家奖学金</b><span>· CAAC 民用无人机驾驶员执照</span></div>
+  </div>
+</header>
+
+<main>
+<!-- ============ 教育经历 ============ -->
+<section id="edu">
+  <div class="sec-head reveal">
+    <div class="sec-kicker">Education</div>
+    <h2>教育经历</h2>
+    <p>中共党员。本科专业排名第一，直通清华大学继续深造。</p>
+  </div>
+  <div class="timeline">
+    <div class="titem reveal">
+      <h3><span class="school">清华大学 · 航天航空学院</span><span class="pill">硕士在读</span><span class="time">2026.09 – 2028.06</span></h3>
+      <div class="major">机械专业 · 研究方向：机器人 / 具身智能（双臂操作、仿真-现实同步）</div>
+      <ul>
+        <li>参与 OpenArm 双臂机器人平台建设：仿真控制台、现实同步、双臂协同操作策略验证</li>
+      </ul>
+    </div>
+    <div class="titem reveal">
+      <h3><span class="school">南京航空航天大学 · 长空学院（长空创新班）</span><span class="time">2022.09 – 2026.06</span></h3>
+      <div class="major">飞行器控制与信息工程 · 本科</div>
+      <ul>
+        <li>绩点 <b>4.5 / 5.0</b>，平均分 95，专业排名 <b>1 / 800</b>（主修 1/56，创新班 1/81），CET-6：509</li>
+        <li>国家奖学金 · 连续三年优秀学生一等奖学金 · 三好学生标兵（前 0.5%）</li>
+        <li>班长（连续两年优秀团干）· 学业支持与辅导中心教员</li>
+      </ul>
+      <div class="course-tags">
+        <span>自动控制原理 97</span><span>现代控制理论 98</span><span>复变函数 100</span><span>大学物理 99</span>
+        <span>C++ 98</span><span>数据结构 97</span><span>理论力学 97</span><span>数学建模 99</span><span>数字电路 95</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 项目成果 ============ -->
+<section id="projects">
+  <div class="sec-head reveal">
+    <div class="sec-kicker">Projects</div>
+    <h2>项目成果</h2>
+    <p>从飞控算法到整机调试、从嵌入式硬件到机器人仿真 —— 每个项目都亲手做完最后一公里。视频均为实物实拍，点击可放大查看。</p>
+  </div>
+
+  <!-- 1 无人机投弹 -->
+  <div class="project reveal">
+    <div class="p-media">
+      <span class="p-badge">第一负责人 · 大创结题</span>
+      <div class="frame"><video class="showcase" muted loop playsinline preload="none" poster="assets/img/drone_flight.jpg" data-src="assets/video/drone_flight.mp4"></video></div>
+      <span class="p-hint">点击放大</span>
+    </div>
+    <div class="p-body">
+      <h3>全自动化无人机高精度投弹控制方法研究</h3>
+      <div class="p-meta">2024.06 – 2025.06 · 国家级大创 · 第一负责人</div>
+      <p class="desc">在 ArduPilot 开源飞控基础上二次开发，打通「视觉识别 — 飞控决策 — 整机执行」全链路，制作无人机原型并完成实机试飞。</p>
+      <ul>
+        <li>编写飞控 Lua 脚本，使用 MP 地面站完成 SITL 软件在环仿真调试</li>
+        <li>基于 YOLO 实现目标靶标的识别与定位，引导高精度投弹</li>
+        <li>独立完成无人机整机组装、参数整定与试飞验证</li>
+      </ul>
+      <div class="p-tags"><span>ArduPilot</span><span>SITL 仿真</span><span>YOLO</span><span>Python</span><span>整机组装</span></div>
+      <div class="cert-chip" data-video="assets/img/cert_drone.jpg" data-caption="《全自动化无人机高精度投弹控制方法研究》结题证书">
+        <img src="assets/img/cert_drone.jpg" alt="结题证书">
+        <span>项目结题证书<em>另持 CAAC 民用无人机驾驶员执照</em></span>
+      </div>
+    </div>
+  </div>
+
+  <!-- 2 OpenArm -->
+  <div class="project reveal">
+    <div class="p-media">
+      <span class="p-badge blue">研究生阶段 · 进行中</span>
+      <div class="frame"><video class="showcase" muted loop playsinline preload="none" poster="assets/img/openarm_demo.jpg" data-src="assets/video/openarm_demo.mp4"></video></div>
+      <span class="p-hint">点击放大</span>
+    </div>
+    <div class="p-body">
+      <h3>OpenArm 双臂机器人：仿真与现实同步</h3>
+      <div class="p-meta">2026 · 硕士入学前后科研实践</div>
+      <p class="desc">围绕 OpenArm 双臂平台搭建「仿真 ⇄ 现实」同步系统：网页端仿真控制台支持关节控制与轨迹回放，可接入外部命令驱动真实双臂，并验证双臂协同操作策略。</p>
+      <ul>
+        <li>双臂纸杯接力任务：仿真策略部署到真机执行</li>
+        <li>纯摩擦双臂接力 benchmark：100 组自动化评测数据统计</li>
+        <li>策略 rollout 成功 / 失败案例的系统化记录与回放分析</li>
+      </ul>
+      <div class="p-tags"><span>双臂机器人</span><span>仿真-现实同步</span><span>策略 rollout</span><span>Benchmark</span><span>ROS / Linux</span></div>
+    </div>
+  </div>
+
+  <!-- 3 世界模型 sim2real 灵巧手 -->
+  <div class="project reveal">
+    <div class="p-media">
+      <span class="p-badge blue">研究生阶段 · 进行中</span>
+      <div class="frame"><video class="showcase" muted loop playsinline preload="none" poster="assets/img/dexterous_hand.jpg" data-src="assets/video/dexterous_hand.mp4"></video></div>
+      <span class="p-hint">点击放大</span>
+    </div>
+    <div class="p-body">
+      <h3>基于世界模型的灵巧手 Sim2Real 操作</h3>
+      <div class="p-meta">2026 · 硕士科研方向 · 具身智能（π0.5 / openpi 实机部署）</div>
+      <p class="desc">围绕灵巧手操作搭建「真机 — 数据 — 部署 — 迁移」的 sim2real 全流程：真机拼装与遥操作、脚本化专家数据采集，基于 openpi 部署 π0.5 模型完成实机推理，并以数字孪生打通仿真与现实的迁移链路。</p>
+      <ul>
+        <li>灵巧手整机拼装、驱动控制与遥操作链路搭建</li>
+        <li>脚本专家策略自动化采集操作演示数据</li>
+        <li>基于 openpi 完成 π0.5 模型实机部署与推理验证</li>
+        <li>构建数字孪生环境，支撑世界模型 sim2real 迁移</li>
+      </ul>
+      <div class="p-tags"><span>灵巧手</span><span>具身智能</span><span>π0.5 · openpi</span><span>世界模型</span><span>sim2real</span><span>遥操作</span></div>
+      <div class="p-gallery">
+        <button type="button" data-video="assets/video/pi05_deploy.mp4" data-caption="π0.5 模型部署成功">
+          <img src="assets/img/pi05_deploy.jpg" alt="π0.5 部署成功"><span class="g-label">π0.5 部署成功</span>
+        </button>
+        <button type="button" data-video="assets/video/openpi_deploy.mp4" data-caption="openpi 实机部署">
+          <img src="assets/img/openpi_deploy.jpg" alt="实机部署 openpi"><span class="g-label">实机部署 openpi</span>
+        </button>
+        <button type="button" data-video="assets/video/digital_twin.mp4" data-caption="数字孪生">
+          <img src="assets/img/digital_twin.jpg" alt="数字孪生"><span class="g-label">数字孪生</span>
+        </button>
+        <button type="button" data-video="assets/video/scripted_data.mp4" data-caption="脚本专家采集数据">
+          <img src="assets/img/scripted_data.jpg" alt="脚本专家采数据"><span class="g-label">脚本专家采数据</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- 3 智能下棋 -->
+  <div class="project reveal">
+    <div class="p-media">
+      <span class="p-badge">队长 · 省一等奖（国赛）</span>
+      <div class="frame"><video class="showcase" muted loop playsinline preload="none" poster="assets/img/chess.jpg" data-src="assets/video/chess.mp4"></video></div>
+      <span class="p-hint">点击放大</span>
+    </div>
+    <div class="p-body">
+      <h3>智能下棋系统</h3>
+      <div class="p-meta">2024 · TI 杯全国大学生电子设计竞赛（队长）· 省一等奖，晋级国赛</div>
+      <p class="desc">机器视觉识别棋盘状态，minmax 博弈算法决策，机械臂自动落子，Qt5 上位机可视化对弈。</p>
+      <ul>
+        <li>负责决策逻辑算法、机器视觉与 Qt5 UI 设计</li>
+        <li>STM32 控制系统、逆运动学求解、硬件焊接与电路设计</li>
+        <li>自主设计结构件并 3D 打印搭建整机平台</li>
+      </ul>
+      <div class="p-tags"><span>OpenCV</span><span>minmax 博弈</span><span>逆运动学</span><span>STM32</span><span>Qt5</span><span>3D 打印</span></div>
+    </div>
+  </div>
+
+  <!-- 4 智能家居 -->
+  <div class="project reveal">
+    <div class="p-media">
+      <span class="p-badge slate">独立完成 · 校赛</span>
+      <div class="frame"><video class="showcase" muted loop playsinline preload="none" poster="assets/img/fire_alarm.jpg" data-src="assets/video/fire_alarm.mp4"></video></div>
+      <span class="p-hint">点击放大</span>
+    </div>
+    <div class="p-body">
+      <h3>基于树莓派 + STM32 的智能家居系统</h3>
+      <div class="p-meta">全国大学生电子设计竞赛校赛 · 整个系统独立完成</div>
+      <p class="desc">树莓派负责视觉与语音，STM32 负责传感与执行，实现一套完整可用的智能家居原型。</p>
+      <ul>
+        <li>人脸识别智能门锁：识别通过后自动开门</li>
+        <li>火焰检测与报警：本地声光提示 + 自动脚本发送邮件告警</li>
+        <li>语音助手与手势交互，多模块协同联动</li>
+      </ul>
+      <div class="p-tags"><span>树莓派</span><span>STM32</span><span>人脸识别</span><span>火焰检测</span><span>语音助手</span></div>
+    </div>
+  </div>
+
+  <!-- 5 AC-AC -->
+  <div class="project reveal">
+    <div class="p-media">
+      <span class="p-badge blue">省赛 · TI 杯</span>
+      <div class="frame"><video class="showcase" muted loop playsinline preload="none" poster="assets/img/power_debug.jpg" data-src="assets/video/power_debug.mp4"></video></div>
+      <span class="p-hint">点击放大</span>
+    </div>
+    <div class="p-body">
+      <h3>AC-AC 双向 Buck 电压变换系统</h3>
+      <div class="p-meta">2024 · TI 杯电子设计竞赛省赛</div>
+      <p class="desc">完成完整 AC-AC 双向 Buck 降压硬件电气电路的搭建，实现交流电的电压变换。</p>
+      <ul>
+        <li>主电路拓扑设计、驱动电路（光耦 + 辅助电源）与电流 / 电压采样电路设计</li>
+        <li>控制系统编写与 Multisim 仿真验证</li>
+      </ul>
+      <div class="p-tags"><span>电力电子</span><span>电路拓扑</span><span>采样电路</span><span>STM32</span><span>Multisim</span></div>
+    </div>
+  </div>
+
+  <!-- 6 激光写字 -->
+  <div class="project reveal">
+    <div class="p-media">
+      <span class="p-badge slate">自制项目</span>
+      <div class="frame"><video class="showcase" muted loop playsinline preload="none" poster="assets/img/laser_write.jpg" data-src="assets/video/laser_write.mp4"></video></div>
+      <span class="p-hint">点击放大</span>
+    </div>
+    <div class="p-body">
+      <h3>激光写字云台</h3>
+      <div class="p-meta">二轴云台 · 电机协同控制</div>
+      <p class="desc">基于二轴云台与激光模块的自制书写系统，通过两轴电机协同插补运动，在纸面上书写出文字与图案。</p>
+      <ul>
+        <li>云台电机控制与轨迹规划，字符轨迹生成</li>
+        <li>上位机下发指令，实时完成书写动作</li>
+      </ul>
+      <div class="p-tags"><span>二轴云台</span><span>电机控制</span><span>轨迹规划</span><span>STM32</span></div>
+    </div>
+  </div>
+
+  <!-- 7 固定翼 -->
+  <div class="project reveal">
+    <div class="p-media">
+      <span class="p-badge slate">航模制作</span>
+      <div class="frame"><video class="showcase" muted loop playsinline preload="none" poster="assets/img/paper_plane.jpg" data-src="assets/video/paper_plane.mp4"></video></div>
+      <span class="p-hint">点击放大</span>
+    </div>
+    <div class="p-body">
+      <h3>自制遥控固定翼飞行器</h3>
+      <div class="p-meta">纸飞机改装 · 实飞验证</div>
+      <p class="desc">以纸飞机为机体，自行设计并安装电机、舵面与接收系统，改装为可遥控飞行的固定翼，完成户外试飞。</p>
+      <ul>
+        <li>动力系统与舵面布局设计、整机配重调试</li>
+        <li>遥控链路搭建与实飞操控验证</li>
+      </ul>
+      <div class="p-tags"><span>固定翼</span><span>航模</span><span>遥控链路</span><span>试飞</span></div>
+    </div>
+  </div>
+
+  <!-- 更多成果 -->
+  <div class="sec-head reveal" style="margin-top:48px">
+    <h2 style="font-size:24px">更多科研与竞赛成果</h2>
+  </div>
+  <div class="mini-grid">
+    <div class="mini reveal">
+      <h3>“挑战杯”课外学术科技作品竞赛 <span class="mini-badge">全国特等奖</span></h3>
+      <p>根据中核集团要求，基于 Unity3D + SteamVR 搭建核工程场景 VR 仿真平台，在虚拟环境复现核电站并实现多项交互功能，主要负责场景搭建与部分功能实现。</p>
+      <div class="p-tags"><span>Unity3D</span><span>SteamVR</span><span>软著第一作者（本科）</span></div>
+    </div>
+    <div class="mini reveal">
+      <h3>轨道角动量（OAM）无线通信方法研究 <span class="mini-badge blue">毕业设计</span></h3>
+      <p>依托 601 所课题，设计 OAM 双信道通信系统：QPSK 调制、扩频解扩、帧 / 载波同步与误码率验证；Simulink 搭建全链路并经 Vitis Model Composer 面向 FPGA 模块化部署。</p>
+      <div class="p-tags"><span>Simulink</span><span>FPGA</span><span>扩频通信</span><span>同步算法</span></div>
+    </div>
+    <div class="mini reveal">
+      <h3>全国大学生数学建模竞赛 <span class="mini-badge">全国二等奖</span></h3>
+      <p>队长。建立板凳龙运动的极坐标动态模型，推导位置递推与速度分解公式，开发碰撞检测算法，实现舞龙队轨迹预测与规划；独立完成全部数学建模与 Python 数值仿真。</p>
+      <div class="p-tags"><span>数学建模</span><span>Python 数值仿真</span><span>碰撞检测</span></div>
+    </div>
+    <div class="mini reveal">
+      <h3>Fast-SCNN 语义分割网络复现 <span class="mini-badge blue">论文复现</span></h3>
+      <p>完整复现 Fast-SCNN 三大核心组件（学习下采样、全局特征提取器、特征融合），在 Cityscapes 数据集上达到 58.0% mIoU 基准精度，推理速度 65 FPS。</p>
+      <div class="p-tags"><span>PyTorch</span><span>语义分割</span><span>Cityscapes</span></div>
+    </div>
+    <div class="mini reveal">
+      <h3>深度学习在卫星故障诊断中的应用 <span class="mini-badge blue">国家级大创</span></h3>
+      <p>大二学年主持科创训练项目，完成驱动器动力学 / 运动学建模，结合 MATLAB 与 Simulink 仿真，入门并实践深度学习诊断方法。</p>
+      <div class="p-tags"><span>MATLAB</span><span>Simulink</span><span>深度学习</span></div>
+    </div>
+    <div class="mini reveal">
+      <h3>智能农业系统 <span class="mini-badge blue">独立开发</span></h3>
+      <p>独立完成基于 STM32 的智能农业系统：PCB 高度集成传感器采集、自动补光、灌溉控制、电源管理、通信模块与 UI 交互，具备从硬件接口、驱动开发到整机验证的完整工程实践。</p>
+      <div class="p-tags"><span>STM32</span><span>PCB 设计</span><span>驱动开发</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 荣誉奖项 ============ -->
+<section id="awards">
+  <div class="sec-head reveal">
+    <div class="sec-kicker">Honors</div>
+    <h2>荣誉奖项</h2>
+  </div>
+  <div class="award-grid">
+    <div class="award reveal"><div class="medal">🏆</div><div><b>“挑战杯”全国大学生课外学术科技作品竞赛 · 全国特等奖</b><span>2024</span></div></div>
+    <div class="award reveal"><div class="medal">🥇</div><div><b>全国大学生高等数学竞赛 · 一等奖（国家级）</b><span>第十四届</span></div></div>
+    <div class="award reveal"><div class="medal">🥈</div><div><b>全国大学生数学建模竞赛 · 全国二等奖</b><span>2024 · 队长</span></div></div>
+    <div class="award reveal"><div class="medal">🎖️</div><div><b>TI 杯全国大学生电子设计竞赛 · 省一等奖</b><span>2024 · 队长（晋级国赛）</span></div></div>
+    <div class="award reveal"><div class="medal">🏆</div><div><b>江苏省大学生工程创新大赛 · 特等奖</b><span>队长</span></div></div>
+    <div class="award reveal"><div class="medal">🥈</div><div><b>全国大学生物理竞赛 · 二等奖（国家级）</b><span></span></div></div>
+    <div class="award reveal"><div class="medal">🥇</div><div><b>国家奖学金</b><span></span></div></div>
+    <div class="award reveal"><div class="medal">📜</div><div><b>美国大学生数学建模竞赛 H 奖</b><span>队长（国内二等奖）</span></div></div>
+    <div class="award reveal"><div class="medal">📜</div><div><b>江苏省优秀大学生留学奖学金</b><span>全省仅 35 人</span></div></div>
+    <div class="award reveal"><div class="medal">🥇</div><div><b>国家励志奖学金</b><span></span></div></div>
+    <div class="award reveal"><div class="medal">⭐</div><div><b>三好学生标兵</b><span>前 0.5%</span></div></div>
+    <div class="award reveal"><div class="medal">⭐</div><div><b>连续三年优秀学生一等奖学金</b><span></span></div></div>
+    <div class="award reveal"><div class="medal">🔧</div><div><b>无锡同步杯电路焊接大赛 · 一等奖</b><span></span></div></div>
+    <div class="award reveal"><div class="medal">🚩</div><div><b>优秀团干 · 连续两年</b><span>班长</span></div></div>
+    <div class="award reveal"><div class="medal">🛩️</div><div><b>CAAC 民用无人机驾驶员执照</b><span>证书</span></div></div>
+    <div class="award reveal"><div class="medal">🏊</div><div><b>国家五级游泳救生员</b><span>证书</span></div></div>
+    <div class="award silver reveal"><div class="medal">🗣️</div><div><b>普通话一级乙等</b><span>证书</span></div></div>
+    <div class="award silver reveal"><div class="medal">📐</div><div><b>江苏省大学生高等数学竞赛 · 二等奖</b><span>全国大学生数学建模江苏省一等奖 等</span></div></div>
+  </div>
+</section>
+
+<!-- ============ 专业技能 ============ -->
+<section id="skills">
+  <div class="sec-head reveal">
+    <div class="sec-kicker">Skills</div>
+    <h2>专业技能</h2>
+  </div>
+  <div class="skill-wrap">
+    <div class="skill-cat reveal">
+      <h3><span class="ico">💻</span>编程语言</h3>
+      <div class="chips"><span>C</span><span>C++</span><span>Python</span><span>MATLAB</span><span>Lua（飞控脚本）</span><span>Qt</span></div>
+    </div>
+    <div class="skill-cat reveal">
+      <h3><span class="ico">🔗</span>嵌入式与硬件</h3>
+      <div class="chips"><span>STM32</span><span>树莓派</span><span>Keil</span><span>立创 EDA</span><span>电路设计 / 焊接</span><span>PCB 设计</span></div>
+    </div>
+    <div class="skill-cat reveal">
+      <h3><span class="ico">🤖</span>机器人与仿真</h3>
+      <div class="chips"><span>ROS</span><span>Ubuntu</span><span>ArduPilot / SITL</span><span>Unity3D / SteamVR</span><span>Simulink / Vitis（FPGA）</span></div>
+    </div>
+    <div class="skill-cat reveal">
+      <h3><span class="ico">🧠</span>深度学习与视觉</h3>
+      <div class="chips"><span>PyTorch</span><span>CNN</span><span>YOLO</span><span>语义分割（Fast-SCNN）</span><span>OpenCV</span><span>模型训练与微调</span></div>
+    </div>
+  </div>
+  <div class="sec-head reveal" style="margin-top:48px">
+    <h2 style="font-size:24px">校园经历</h2>
+  </div>
+  <div class="campus reveal">
+    <span>长空学院 1822124 班 班长</span>
+    <span>校书法协会 副社长</span>
+    <span>搏击社 宣传部长</span>
+    <span>学业支持与辅导中心 教员</span>
+    <span>长空学院 1823128 班 班导</span>
+    <span>校级优秀志愿者（志愿时长 200+）</span>
+  </div>
+</section>
+
+<!-- ============ 联系方式 ============ -->
+<section id="contact">
+  <div class="sec-head reveal">
+    <div class="sec-kicker">Contact</div>
+    <h2>联系方式</h2>
+    <p>欢迎交流合作 —— 项目、科研、竞赛皆可。</p>
+  </div>
+  <div class="contact-cards">
+    <a class="ccard reveal" href="mailto:xuyuanxiang@nuaa.edu.cn">
+      <div class="ico">✉️</div><b>邮箱</b><span>xuyuanxiang@nuaa.edu.cn</span>
+    </a>
+    <a class="ccard reveal" href="https://b23.tv/Ei5lh89" target="_blank" rel="noopener">
+      <div class="ico">📺</div><b>哔哩哔哩</b><span>项目视频账号 · b23.tv/Ei5lh89</span>
+    </a>
+    <a class="ccard reveal" href="assets/resume/XuYuanxiang_Resume.pdf" target="_blank">
+      <div class="ico">📄</div><b>简历下载</b><span>XuYuanxiang_Resume.pdf</span>
+    </a>
+  </div>
+</section>
+</main>
+
+<footer>
+  <a class="up" href="#top">↑ 回到顶部</a><br>
+  © 2026 徐元祥 · 清华大学航天航空学院 · 本站由 GitHub Pages 托管
+</footer>
+
+<!-- ============ 灯箱 ============ -->
+<div class="lightbox" id="lightbox">
+  <button class="close" id="lbClose" aria-label="关闭">×</button>
+  <video id="lbVideo" controls playsinline></video>
+  <div class="cap" id="lbCap"></div>
+</div>
+
+<script>
+// ---- 视频懒加载：进入视口才加载并静音循环播放，离开即暂停 ----
+const lazyIO = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    const v = e.target;
+    if (e.isIntersecting) {
+      if (!v.src) v.src = v.dataset.src;
+      v.play().catch(() => {});
+    } else {
+      v.pause();
+    }
+  });
+}, { threshold: .2 });
+document.querySelectorAll('video.showcase').forEach(v => lazyIO.observe(v));
+
+// ---- 灯箱（视频 / 证书图片）----
+const lb = document.getElementById('lightbox'),
+      lbVideo = document.getElementById('lbVideo'),
+      lbCap = document.getElementById('lbCap');
+function openLb(src, caption){
+  lbVideo.style.display = '';
+  lbVideo.querySelector('img')?.remove();
+  if (/\.(png|jpe?g|gif)$/i.test(src)) {
+    lbVideo.style.display = 'none';
+    let img = document.createElement('img');
+    img.src = src; img.style.maxWidth = 'min(1000px,92vw)'; img.style.maxHeight = '84vh';
+    img.style.borderRadius = '12px';
+    lbVideo.after(img);
+  } else {
+    lbVideo.src = src;
+  }
+  lbCap.textContent = caption || '';
+  lb.classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+function closeLb(){
+  lb.classList.remove('open');
+  lbVideo.pause(); lbVideo.removeAttribute('src'); lbVideo.load();
+  lb.querySelectorAll('img').forEach(i => i.remove());
+  document.body.style.overflow = '';
+}
+document.querySelectorAll('.p-media').forEach(m => {
+  m.style.cursor = 'zoom-in';
+  m.addEventListener('click', () => {
+    const v = m.querySelector('video.showcase');
+    openLb(v ? v.dataset.src || v.src : '', m.closest('.project')?.querySelector('h3')?.textContent);
+  });
+});
+document.querySelectorAll('.cert-chip').forEach(c =>
+  c.addEventListener('click', ev => { ev.stopPropagation(); openLb(c.dataset.video, c.dataset.caption); })
+);
+document.querySelectorAll('.p-gallery button').forEach(b =>
+  b.addEventListener('click', ev => { ev.stopPropagation(); openLb(b.dataset.video, b.dataset.caption); })
+);
+document.getElementById('lbClose').addEventListener('click', closeLb);
+lb.addEventListener('click', e => { if (e.target === lb) closeLb(); });
+document.addEventListener('keydown', e => { if (e.key === 'Escape') closeLb(); });
+
+// ---- 滚动显现 ----
+const revealIO = new IntersectionObserver(entries => {
+  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); revealIO.unobserve(e.target); } });
+}, { threshold: .08 });
+document.querySelectorAll('.reveal').forEach(el => revealIO.observe(el));
+
+// ---- 导航高亮 & 移动端菜单 ----
+const links = [...document.querySelectorAll('.nav-links a')];
+const secIO = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      links.forEach(a => a.classList.toggle('active', a.getAttribute('href') === '#' + e.target.id));
+    }
+  });
+}, { rootMargin: '-40% 0px -55% 0px' });
+['edu','projects','awards','skills','contact'].forEach(id => { const s = document.getElementById(id); if (s) secIO.observe(s); });
+const navLinks = document.getElementById('navLinks');
+document.getElementById('menuBtn').addEventListener('click', () => navLinks.classList.toggle('open'));
+links.forEach(a => a.addEventListener('click', () => navLinks.classList.remove('open')));
+</script>
+</body>
+</html>
