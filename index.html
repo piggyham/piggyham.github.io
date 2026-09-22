@@ -147,6 +147,10 @@
   .p-gallery img{width:100%;aspect-ratio:16/9;object-fit:cover;display:block}
   .p-gallery .g-label{position:absolute;left:0;right:0;bottom:0;font-size:11px;line-height:1.4;color:#e2e8f0;background:linear-gradient(transparent,rgba(11,18,32,.85));padding:18px 4px 4px;text-align:center;pointer-events:none}
   @media (max-width:560px){.p-gallery{grid-template-columns:repeat(2,1fr)}}
+  .mini h3 a{color:inherit}
+  .mini h3 a:hover{color:var(--accent)}
+  .oss-featured{grid-column:1/-1;background:linear-gradient(135deg,#ffffff,#eff6ff)}
+  .oss-profile{font-size:14px;margin-left:12px;font-weight:600}
 
   /* compact achievement grid */
   .mini-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:20px}
@@ -364,8 +368,23 @@
         <li>双臂纸杯接力任务：仿真策略部署到真机执行</li>
         <li>纯摩擦双臂接力 benchmark：100 组自动化评测数据统计</li>
         <li>策略 rollout 成功 / 失败案例的系统化记录与回放分析</li>
+        <li>接入 π0.5（openpi）VLA 模型：实机部署、数字孪生与脚本专家数据采集</li>
       </ul>
-      <div class="p-tags"><span>双臂机器人</span><span>仿真-现实同步</span><span>策略 rollout</span><span>Benchmark</span><span>ROS / Linux</span></div>
+      <div class="p-tags"><span>双臂机器人</span><span>仿真-现实同步</span><span>π0.5 · openpi</span><span>策略 rollout</span><span>Benchmark</span><span>ROS / Linux</span></div>
+      <div class="p-gallery">
+        <button type="button" data-video="assets/video/pi05_deploy.mp4" data-caption="π0.5 模型部署成功">
+          <img src="assets/img/pi05_deploy.jpg" alt="π0.5 部署成功"><span class="g-label">π0.5 部署成功</span>
+        </button>
+        <button type="button" data-video="assets/video/openpi_deploy.mp4" data-caption="openpi 实机部署">
+          <img src="assets/img/openpi_deploy.jpg" alt="实机部署 openpi"><span class="g-label">实机部署 openpi</span>
+        </button>
+        <button type="button" data-video="assets/video/digital_twin.mp4" data-caption="数字孪生">
+          <img src="assets/img/digital_twin.jpg" alt="数字孪生"><span class="g-label">数字孪生</span>
+        </button>
+        <button type="button" data-video="assets/video/scripted_data.mp4" data-caption="脚本专家采集数据">
+          <img src="assets/img/scripted_data.jpg" alt="脚本专家采数据"><span class="g-label">脚本专家采数据</span>
+        </button>
+      </div>
     </div>
   </div>
 
@@ -387,20 +406,6 @@
         <li>构建数字孪生环境，支撑世界模型 sim2real 迁移</li>
       </ul>
       <div class="p-tags"><span>灵巧手</span><span>具身智能</span><span>π0.5 · openpi</span><span>世界模型</span><span>sim2real</span><span>遥操作</span></div>
-      <div class="p-gallery">
-        <button type="button" data-video="assets/video/pi05_deploy.mp4" data-caption="π0.5 模型部署成功">
-          <img src="assets/img/pi05_deploy.jpg" alt="π0.5 部署成功"><span class="g-label">π0.5 部署成功</span>
-        </button>
-        <button type="button" data-video="assets/video/openpi_deploy.mp4" data-caption="openpi 实机部署">
-          <img src="assets/img/openpi_deploy.jpg" alt="实机部署 openpi"><span class="g-label">实机部署 openpi</span>
-        </button>
-        <button type="button" data-video="assets/video/digital_twin.mp4" data-caption="数字孪生">
-          <img src="assets/img/digital_twin.jpg" alt="数字孪生"><span class="g-label">数字孪生</span>
-        </button>
-        <button type="button" data-video="assets/video/scripted_data.mp4" data-caption="脚本专家采集数据">
-          <img src="assets/img/scripted_data.jpg" alt="脚本专家采数据"><span class="g-label">脚本专家采数据</span>
-        </button>
-      </div>
     </div>
   </div>
 
@@ -498,6 +503,48 @@
         <li>遥控链路搭建与实飞操控验证</li>
       </ul>
       <div class="p-tags"><span>固定翼</span><span>航模</span><span>遥控链路</span><span>试飞</span></div>
+    </div>
+  </div>
+
+  <!-- 开源项目 -->
+  <div class="sec-head reveal" style="margin-top:48px">
+    <h2 style="font-size:24px">开源项目<a class="oss-profile" href="https://github.com/piggyham" target="_blank" rel="noopener">GitHub @piggyham ↗</a></h2>
+  </div>
+  <div class="mini-grid">
+    <div class="mini oss-featured reveal">
+      <h3><a href="https://github.com/piggyham/BlinkWord" target="_blank" rel="noopener">BlinkWord</a><span class="mini-badge blue">背单词 App · 桌面端</span></h3>
+      <p>Windows 桌面端划词翻译 + 背单词应用：在任意应用里选中文字，自动弹出翻译小卡片，一键「翻译 / 存词」；存下的词进入单词本，按 <b>FSRS 记忆算法</b>（Anki 同款）科学安排复习。翻译服务可插拔（DeepSeek / DeepL / 百度 / 有道 / OpenAI 兼容接口），支持 WebDAV 或自建服务多设备同步。</p>
+      <div class="p-tags"><span>Electron</span><span>FSRS 间隔重复</span><span>JavaScript</span><span>多设备同步</span></div>
+    </div>
+    <div class="mini reveal">
+      <h3><a href="https://github.com/piggyham/openarm_sim" target="_blank" rel="noopener">openarm_sim</a><span class="mini-badge blue">科研开源</span></h3>
+      <p>OpenArm v1 双臂「纸杯接力」的 MuJoCo 仿真：脚本专家与批量数据采集，基于 openpi 的 π0.5 LoRA 微调与闭环评测，子任务拆分与双 LoRA 决策树。</p>
+      <div class="p-tags"><span>Python</span><span>MuJoCo</span><span>π0.5 微调</span></div>
+    </div>
+    <div class="mini reveal">
+      <h3><a href="https://github.com/piggyham/openarm-control" target="_blank" rel="noopener">openarm-control</a><span class="mini-badge blue">科研开源</span></h3>
+      <p>OpenArm 双臂机械臂的控制代码仓库，配合仿真环境与实机部署使用。</p>
+      <div class="p-tags"><span>Python</span><span>机器人控制</span></div>
+    </div>
+    <div class="mini reveal">
+      <h3><a href="https://github.com/piggyham/thu_timetable" target="_blank" rel="noopener">thu_timetable</a><span class="mini-badge">鸿蒙 App</span></h3>
+      <p>清华研究生课程表 HarmonyOS NEXT 版：登录 WebVPN / INFO 自动从教务导入课表，周视图浏览，支持桌面「下一节课 / 今日课表」服务卡片。</p>
+      <div class="p-tags"><span>HarmonyOS NEXT</span><span>服务卡片</span></div>
+    </div>
+    <div class="mini reveal">
+      <h3><a href="https://github.com/piggyham/LOCAL_MONITOR" target="_blank" rel="noopener">LOCAL_MONITOR</a><span class="mini-badge blue">科研工具</span></h3>
+      <p>OpenArm Gen6 本地监控页：FastAPI + SSE 实时展示 CAN / ROS2 状态、数据延迟与故障码，纯本机只读。</p>
+      <div class="p-tags"><span>FastAPI</span><span>SSE</span><span>Python</span></div>
+    </div>
+    <div class="mini reveal">
+      <h3><a href="https://github.com/piggyham/NUEDC_2024e" target="_blank" rel="noopener">NUEDC_2024e</a><span class="mini-badge">电赛源码</span></h3>
+      <p>自动下棋机器人完整源码（即上方「智能下棋系统」）：棋盘矫正与棋局识别、博弈决策、串口控制 STM32 机械臂取放棋子。</p>
+      <div class="p-tags"><span>Python</span><span>OpenCV</span><span>STM32</span></div>
+    </div>
+    <div class="mini reveal">
+      <h3><a href="https://github.com/piggyham/auto_waterer" target="_blank" rel="noopener">auto_waterer</a><span class="mini-badge">嵌入式</span></h3>
+      <p>基于 STM32F103 的自动浇水系统：ST7735 彩屏菜单交互、ADC / DHT11 多路传感采集、水泵控制与低功耗设计。</p>
+      <div class="p-tags"><span>STM32</span><span>Keil</span><span>C</span></div>
     </div>
   </div>
 
